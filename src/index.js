@@ -1,17 +1,38 @@
+// React imports
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {
+  Route,
+  Routes,
+  HashRouter
+} from "react-router-dom";
+
+// Styles
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// Pages
+import {Home} from "./pages/Home"
+import {Deposit} from "./pages/Deposit"
+import {Withdraw} from "./pages/Withdraw"
+import {Login} from "./pages/Login"
+import {CreateAccount} from "./pages/CreateAccount"
+
+// Components
+import Navbar from './components/Navbar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <HashRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/deposit" element={<Deposit />} />
+          <Route path="/withdraw" element={<Withdraw />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/createAccount" element={<CreateAccount />} />
+        </Routes>
+      </HashRouter>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
