@@ -1,8 +1,32 @@
+import { useEffect } from "react";
+
 export function CreateAccount() {
+
+  useEffect(() => {
+    console.log("in useEffect in createAccount");
+    // return () => { console.log("in useEffect in createAccount return statement"); }
+    var users;
+    fetch("http://localhost:3001/pages/createAccount")
+      .then((res) => {
+        console.log("res:", res);
+        res.json();
+      })
+      .then((usersFromRes) => {
+        console.log("usersFromRes:", usersFromRes);
+        users = usersFromRes;
+        console.log("users:", users);
+      });
+      return () => buttonClicked();
+  }, []);
+
+  function buttonClicked(params) {
+    console.log("hello");
+  }
+
   return (
     <h3 className="container py-3 text-muted">
       {/* UserName */}
-      <label for="username">Username</label>
+      <label htmlFor="username">Username</label>
       <div>
         <div className="input-group mb-3">
           <input
@@ -15,7 +39,7 @@ export function CreateAccount() {
         </div>
       </div>
       {/* Email Address */}
-      <label for="email-address">Email Address</label>
+      <label htmlFor="email-address">Email Address</label>
       <div>
         <div className="input-group mb-3">
           <input
@@ -28,7 +52,7 @@ export function CreateAccount() {
         </div>
       </div>
       {/* Password */}
-      <label for="password">Password</label>
+      <label htmlFor="password">Password</label>
       <div>
         <div className="input-group mb-3">
           <input
@@ -40,7 +64,7 @@ export function CreateAccount() {
         </div>
       </div>
       {/* Confirm Password */}
-      <label for="confirm-password">Confirm Password</label>
+      <label htmlFor="confirm-password">Confirm Password</label>
       <div>
         <div className="input-group mb-3">
           <input
@@ -52,7 +76,7 @@ export function CreateAccount() {
         </div>
       </div>
       {/* Starting Dollar Amount */}
-      <label for="starting-dollar-amount">Starting Dollar Amount</label>
+      <label htmlFor="starting-dollar-amount">Starting Dollar Amount</label>
       <div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
@@ -72,7 +96,7 @@ export function CreateAccount() {
       </div>
       {/* Submit */}
       <div className="row m-auto">
-        <button className="btn btn-primary col-12">Create Account</button>
+        <button className="btn btn-primary col-12" onClick={buttonClicked}>Create Account</button>
       </div>
     </h3>
   );

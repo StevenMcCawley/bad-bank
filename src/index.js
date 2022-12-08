@@ -12,14 +12,14 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Pages
-import {Home} from "./pages/Home"
-import {Deposit} from "./pages/Deposit"
-import {Withdraw} from "./pages/Withdraw"
-import {Login} from "./pages/Login"
-import {CreateAccount} from "./pages/CreateAccount"
+import {Home} from "./pages/Home.js"
+import {Deposit} from "./pages/Deposit.js"
+import {Withdraw} from "./pages/Withdraw.js"
+import {Login} from "./pages/Login.js"
+import {CreateAccount} from "./pages/CreateAccount.js"
 
 // Components
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
