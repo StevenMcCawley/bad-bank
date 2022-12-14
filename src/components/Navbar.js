@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 function Navbar() {
+  const [loggedInUser, setloggedInUser] = useState("");
+  
+
     return (
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
